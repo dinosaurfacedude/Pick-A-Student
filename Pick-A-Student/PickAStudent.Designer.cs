@@ -38,17 +38,19 @@
             this.Save = new System.Windows.Forms.Button();
             this.NextStudent = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.TextBox();
+            this.ClassChoose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // StudentName
             // 
             this.StudentName.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.StudentName.Enabled = false;
             this.StudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentName.Location = new System.Drawing.Point(197, 158);
             this.StudentName.Name = "StudentName";
+            this.StudentName.ShortcutsEnabled = false;
             this.StudentName.Size = new System.Drawing.Size(431, 49);
             this.StudentName.TabIndex = 1;
+            this.StudentName.Text = "Daniel Jones";
             // 
             // Edit
             // 
@@ -61,6 +63,7 @@
             this.Edit.TabIndex = 3;
             this.Edit.Text = "Edit";
             this.Edit.UseVisualStyleBackColor = false;
+            this.Edit.Click += new System.EventHandler(this.Edit_Click);
             // 
             // About
             // 
@@ -113,6 +116,7 @@
             this.sleeping.Size = new System.Drawing.Size(110, 99);
             this.sleeping.TabIndex = 9;
             this.sleeping.UseVisualStyleBackColor = false;
+            this.sleeping.Click += new System.EventHandler(this.sleeping_Click);
             // 
             // Save
             // 
@@ -151,9 +155,24 @@
             this.title.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.title.Location = new System.Drawing.Point(197, 26);
             this.title.Name = "title";
+            this.title.ReadOnly = true;
+            this.title.ShortcutsEnabled = false;
             this.title.Size = new System.Drawing.Size(431, 38);
             this.title.TabIndex = 14;
             this.title.Text = "Dr. Rouse\'s Pick A Student";
+            // 
+            // ClassChoose
+            // 
+            this.ClassChoose.BackColor = System.Drawing.Color.DimGray;
+            this.ClassChoose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ClassChoose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClassChoose.Location = new System.Drawing.Point(12, 26);
+            this.ClassChoose.Name = "ClassChoose";
+            this.ClassChoose.Size = new System.Drawing.Size(116, 38);
+            this.ClassChoose.TabIndex = 15;
+            this.ClassChoose.Text = "Choose Class";
+            this.ClassChoose.UseVisualStyleBackColor = false;
+            this.ClassChoose.Click += new System.EventHandler(this.ClassChoose_Click);
             // 
             // PickAStudent
             // 
@@ -161,6 +180,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 492);
+            this.Controls.Add(this.ClassChoose);
             this.Controls.Add(this.title);
             this.Controls.Add(this.NextStudent);
             this.Controls.Add(this.Save);
@@ -172,7 +192,7 @@
             this.Controls.Add(this.StudentName);
             this.Name = "PickAStudent";
             this.RightToLeftLayout = true;
-            this.Text = "Form1";
+            this.Text = "Pick A Student";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,6 +208,7 @@
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button NextStudent;
         private System.Windows.Forms.TextBox title;
+        private System.Windows.Forms.Button ClassChoose;
     }
 }
 

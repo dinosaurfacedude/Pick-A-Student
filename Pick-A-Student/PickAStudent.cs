@@ -26,5 +26,22 @@ namespace Pick_A_Student
         {
 
         }
+
+        private void Edit_Click(object sender, EventArgs e)
+        {
+            var newForm = new EditWindow();
+            newForm.Show();
+        }
+
+        private void sleeping_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClassChoose_Click(object sender, EventArgs e)
+        {
+            var newForm = new ChooseClass();
+            newForm.Show();
+        }
     }
 }

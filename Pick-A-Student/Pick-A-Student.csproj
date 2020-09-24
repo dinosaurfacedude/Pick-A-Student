@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChooseClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseClass.Designer.cs">
+      <DependentUpon>ChooseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditWindow.Designer.cs">
+      <DependentUpon>EditWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="PickAStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,17 +66,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChooseClass.resx">
+      <DependentUpon>ChooseClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditWindow.resx">
+      <DependentUpon>EditWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PickAStudent.resx">
       <DependentUpon>PickAStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -78,43 +102,10 @@
     <None Include="Resources\Happy Face.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\happy face small.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Untitled.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Thinking.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Thinking1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\thinking3.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Sleeping Emoji.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sleeping.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sleeping1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\happy.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\happy1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\happy2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Thinking2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Thinking4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
