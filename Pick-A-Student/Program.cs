@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Pick_A_Student
 {
     static class Program
@@ -14,9 +15,19 @@ namespace Pick_A_Student
         [STAThread]
         static void Main()
         {
+            /*
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PickAStudent());
+            Application.Run(new ChooseClass());
+            */
+            backend test = new backend();
+
+            test.createTable("COSC101");
+            test.insertStudent("COSC101", "Daniel");
+            test.countID("COSC101");
+            test.addCorrect("COSC101", 1);
+            //test.deleteTable("COSC101");
+        
         }
     }
 }
