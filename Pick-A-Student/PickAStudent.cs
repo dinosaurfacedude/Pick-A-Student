@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,6 +13,7 @@ namespace Pick_A_Student
 {
     public partial class PickAStudent : Form
     {
+        backend student = new backend();
         public PickAStudent()
         {
             InitializeComponent();
@@ -43,5 +45,14 @@ namespace Pick_A_Student
             var newForm = new ChooseClass();
             newForm.Show();
         }
+
+        private void StudentName_TextChanged(object sender, EventArgs e)
+        {
+            int i;
+
+            student.getStudent("cosc101", i);    
+        }
+
+        
     }
 }
