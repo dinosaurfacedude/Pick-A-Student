@@ -51,7 +51,6 @@ namespace Pick_A_Student
             var newForm = new ChooseClass();
             newForm.Show();
         }
-<<<<<<< HEAD
 
         private void StudentName_TextChanged(object sender, EventArgs e)
         {
@@ -59,7 +58,5 @@ namespace Pick_A_Student
         }
 
         
-=======
->>>>>>> parent of 6a16b61... Added reference to backend in project browser
     }
 }
