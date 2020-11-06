@@ -28,22 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PickAStudent));
             this.StudentName = new System.Windows.Forms.TextBox();
             this.Edit = new System.Windows.Forms.Button();
             this.About = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.ThinkingBright = new System.Windows.Forms.Button();
-            this.sleeping = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
-            this.NextStudent = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.TextBox();
             this.ClassChoose = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.NextStudent = new System.Windows.Forms.Button();
+            this.sleeping = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ThinkingBright = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // StudentName
             // 
-            this.StudentName.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.StudentName.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.StudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StudentName.Location = new System.Drawing.Point(197, 158);
             this.StudentName.Name = "StudentName";
@@ -51,6 +53,7 @@
             this.StudentName.Size = new System.Drawing.Size(431, 49);
             this.StudentName.TabIndex = 1;
             this.StudentName.Text = "Daniel Jones";
+            this.StudentName.TextChanged += new System.EventHandler(this.StudentName_TextChanged);
             // 
             // Edit
             // 
@@ -77,46 +80,7 @@
             this.About.TabIndex = 7;
             this.About.Text = "About";
             this.About.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(197, 244);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 100);
-            this.button1.TabIndex = 8;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ThinkingBright
-            // 
-            this.ThinkingBright.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ThinkingBright.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ThinkingBright.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ThinkingBright.Image = ((System.Drawing.Image)(resources.GetObject("ThinkingBright.Image")));
-            this.ThinkingBright.Location = new System.Drawing.Point(365, 244);
-            this.ThinkingBright.Name = "ThinkingBright";
-            this.ThinkingBright.Size = new System.Drawing.Size(108, 100);
-            this.ThinkingBright.TabIndex = 5;
-            this.ThinkingBright.UseVisualStyleBackColor = false;
-            this.ThinkingBright.Click += new System.EventHandler(this.ThinkingBright_Click);
-            // 
-            // sleeping
-            // 
-            this.sleeping.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.sleeping.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.sleeping.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sleeping.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.sleeping.Image = ((System.Drawing.Image)(resources.GetObject("sleeping.Image")));
-            this.sleeping.Location = new System.Drawing.Point(518, 245);
-            this.sleeping.Name = "sleeping";
-            this.sleeping.Size = new System.Drawing.Size(110, 99);
-            this.sleeping.TabIndex = 9;
-            this.sleeping.UseVisualStyleBackColor = false;
-            this.sleeping.Click += new System.EventHandler(this.sleeping_Click);
+            this.About.Click += new System.EventHandler(this.About_Click);
             // 
             // Save
             // 
@@ -132,22 +96,6 @@
             this.Save.Text = "Save";
             this.Save.UseVisualStyleBackColor = false;
             // 
-            // NextStudent
-            // 
-            this.NextStudent.BackColor = System.Drawing.Color.DimGray;
-            this.NextStudent.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.NextStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NextStudent.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.NextStudent.Image = ((System.Drawing.Image)(resources.GetObject("NextStudent.Image")));
-            this.NextStudent.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.NextStudent.Location = new System.Drawing.Point(365, 406);
-            this.NextStudent.Name = "NextStudent";
-            this.NextStudent.Size = new System.Drawing.Size(108, 71);
-            this.NextStudent.TabIndex = 12;
-            this.NextStudent.Text = "Next Student";
-            this.NextStudent.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.NextStudent.UseVisualStyleBackColor = false;
-            // 
             // title
             // 
             this.title.BackColor = System.Drawing.Color.DimGray;
@@ -159,7 +107,9 @@
             this.title.ShortcutsEnabled = false;
             this.title.Size = new System.Drawing.Size(431, 38);
             this.title.TabIndex = 14;
-            this.title.Text = "Dr. Rouse\'s Pick A Student";
+            this.title.Text = "Pick A Student";
+            this.title.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.title.TextChanged += new System.EventHandler(this.title_TextChanged);
             // 
             // ClassChoose
             // 
@@ -174,12 +124,85 @@
             this.ClassChoose.UseVisualStyleBackColor = false;
             this.ClassChoose.Click += new System.EventHandler(this.ClassChoose_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.DimGray;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Location = new System.Drawing.Point(638, 212);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(65, 13);
+            this.textBox1.TabIndex = 16;
+            this.textBox1.Text = "Queue size: 1";
+            // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
+            // NextStudent
+            // 
+            this.NextStudent.BackColor = System.Drawing.Color.DimGray;
+            this.NextStudent.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.NextStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NextStudent.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.NextStudent.Image = global::Pick_A_Student.Properties.Resources.ClipartKey_237173;
+            this.NextStudent.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.NextStudent.Location = new System.Drawing.Point(365, 406);
+            this.NextStudent.Name = "NextStudent";
+            this.NextStudent.Size = new System.Drawing.Size(108, 71);
+            this.NextStudent.TabIndex = 12;
+            this.NextStudent.Text = "Next Student";
+            this.NextStudent.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.NextStudent.UseVisualStyleBackColor = false;
+            this.NextStudent.Click += new System.EventHandler(this.NextStudent_Click);
+            // 
+            // sleeping
+            // 
+            this.sleeping.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.sleeping.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.sleeping.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sleeping.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.sleeping.Image = global::Pick_A_Student.Properties.Resources.Sleeping_Emoji2;
+            this.sleeping.Location = new System.Drawing.Point(518, 245);
+            this.sleeping.Name = "sleeping";
+            this.sleeping.Size = new System.Drawing.Size(110, 99);
+            this.sleeping.TabIndex = 9;
+            this.sleeping.UseVisualStyleBackColor = false;
+            this.sleeping.Click += new System.EventHandler(this.sleeping_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::Pick_A_Student.Properties.Resources.dark_smilly1;
+            this.button1.Location = new System.Drawing.Point(197, 244);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(103, 100);
+            this.button1.TabIndex = 8;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ThinkingBright
+            // 
+            this.ThinkingBright.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ThinkingBright.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ThinkingBright.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ThinkingBright.Image = global::Pick_A_Student.Properties.Resources.dark_thinking1;
+            this.ThinkingBright.Location = new System.Drawing.Point(365, 244);
+            this.ThinkingBright.Name = "ThinkingBright";
+            this.ThinkingBright.Size = new System.Drawing.Size(108, 100);
+            this.ThinkingBright.TabIndex = 5;
+            this.ThinkingBright.UseVisualStyleBackColor = false;
+            this.ThinkingBright.Click += new System.EventHandler(this.ThinkingBright_Click);
+            // 
             // PickAStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 492);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.ClassChoose);
             this.Controls.Add(this.title);
             this.Controls.Add(this.NextStudent);
@@ -193,6 +216,8 @@
             this.Name = "PickAStudent";
             this.RightToLeftLayout = true;
             this.Text = "Pick A Student";
+            this.Load += new System.EventHandler(this.PickAStudent_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,6 +234,8 @@
         private System.Windows.Forms.Button NextStudent;
         private System.Windows.Forms.TextBox title;
         private System.Windows.Forms.Button ClassChoose;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }
 

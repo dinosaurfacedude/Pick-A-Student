@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="backend.cs" />
     <Compile Include="ChooseClass.cs">
       <SubType>Form</SubType>
@@ -72,6 +78,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChooseClass.resx">
       <DependentUpon>ChooseClass.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,13 +115,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Happy Face.jpg" />
+    <None Include="Resources\smilly.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Thinking.png" />
+    <None Include="Resources\Thinking Emoji.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sleeping Emoji1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClipartKey_2371731.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dark Sleeping.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark smilly.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark thinking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark smilly1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark thinking1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sleeping Emoji.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sleeping Emoji2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />

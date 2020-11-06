@@ -45,6 +45,7 @@
             this.AddClass.TabIndex = 0;
             this.AddClass.Text = "Add Class +";
             this.AddClass.UseVisualStyleBackColor = false;
+            this.AddClass.Click += new System.EventHandler(this.AddClass_Click);
             // 
             // DeleteClass
             // 
