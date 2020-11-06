@@ -11,8 +11,11 @@ using System.Windows.Forms;
 
 namespace Pick_A_Student
 {
+
+   
     public partial class PickAStudent : Form
     {
+        String StudentClass = "cosc101";
         backend student = new backend();
         public PickAStudent()
         {
@@ -48,9 +51,7 @@ namespace Pick_A_Student
 
         private void StudentName_TextChanged(object sender, EventArgs e)
         {
-            int i;
-
-            student.getStudent("cosc101", i);    
+            
         }
 
         
