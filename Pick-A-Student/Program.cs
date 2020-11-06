@@ -22,10 +22,15 @@ namespace Pick_A_Student
             */
             backend test = new backend();
 
-            test.createTable("COSC101");
-            test.insertStudent("COSC101", "Daniel");
-            test.countID("COSC101");
-            test.addCorrect("COSC101", 1);
+            //test.createTable("COSC101");
+            String name = test.getStudent("COSC101", 1);
+            test.randomizeArray("COSC101");
+           // Console.WriteLine(name);
+            //test.insertStudent("COSC101", "Daniel");
+            
+            
+            //test.countID("COSC101");
+            //test.addCorrect("COSC101", 1);
             //test.deleteTable("COSC101");
         
         }

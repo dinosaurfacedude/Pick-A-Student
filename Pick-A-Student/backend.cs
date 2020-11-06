@@ -7,6 +7,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Pick_A_Student
 {
@@ -49,7 +50,7 @@ namespace Pick_A_Student
             int i = countID(tableName) + 1;
             
 
-            String command = "INSERT INTO " + tableName + " (ID, NAME) VALUES (" + i + ", '" + studentName + "')";
+            String command = "INSERT INTO " + tableName + " (id, name, correct, incorrect, missing) VALUES (" + i + ", '" + studentName + "', 0, 0, 0)";
             SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
             myCommand.ExecuteNonQuery();
         }
@@ -60,27 +61,118 @@ namespace Pick_A_Student
         {
             SQLiteDataReader result;
             int correct;
-            String command = "select correct from " + tableName + " where id = [" + studentID + "]";
+            String command = "select correct from " + tableName + " where id = " + studentID;
             SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
             result = myCommand.ExecuteReader();
 
-            correct = result.GetInt16(0);
+            //checks if query has rows
+            if (result.HasRows)
+            {
+                result.Read();
+                correct = result.GetInt16(0);
 
-            Console.WriteLine("CORRECT NUMBERS: " + correct);
+                Console.WriteLine("CORRECT NUMBERS: " + correct);
+
+                correct += 1;
+
+                command = "update " + tableName + " set correct = " + correct + " where id = " + studentID;
+
+                myCommand = new SQLiteCommand(command, myConnection);
+                myCommand.ExecuteNonQuery();
+
+            }
+
         }
+
+        public void addIncorrect(String tableName, int studentID)
+        {
+            SQLiteDataReader result;
+            int incorrect;
+            String command = "select incorrect from " + tableName + " where id = " + studentID;
+            SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
+            result = myCommand.ExecuteReader();
+
+            //checks if query has rows
+            if (result.HasRows)
+            {
+                result.Read();
+                incorrect = result.GetInt16(0);
+
+                Console.WriteLine("INCORRECT NUMBERS: " + incorrect);
+
+                incorrect += 1;
+
+                command = "update " + tableName + " set incorrect = " + incorrect + " where id = " + studentID;
+
+                myCommand = new SQLiteCommand(command, myConnection);
+                myCommand.ExecuteNonQuery();
+
+            }
+
+        }
+
+
+        //gets the name of the student called
+        public String getStudent(String tableName, int studentID)
+        {
+            String name;
+            String command = "select name from " + tableName + " where id = " + studentID;
+            SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
+            SQLiteDataReader result;
+            result = myCommand.ExecuteReader();
+
+            if (result.HasRows)
+            {
+                result.Read();
+                name = result.GetString(0);
+                return name;
+            }
+
+            //if nothing in database, returns null.
+            return "null";
+        }
+
+
+        public int[] randomizeArray(String tableName)
+        {
+
+            int n = countID(tableName);
+            Console.WriteLine("length of array is " + n);
+            int i = 0;
+            int [] studentList = new int[n];
+            int id = 0;
+            Random rand = new Random();
+
+            while (i < n)
+            {
+                
+                id = rand.Next(1, n + 1);
+                if (!studentList.Contains(id))
+                {
+                    studentList[i] = id;
+                    i++;
+                    Console.WriteLine("random int is " + id);
+                }
+            }
+            
+            return studentList;
+        }
+
+
 
         //counts the total number of entries in a table
         public int countID(String tableName)
         {
-            int count = 0;
+            
             int result;
-            String command = "SELECT COUNT(*) FROM " + tableName;
+            String command = "SELECT COUNT(*) FROM " + tableName; //my SQL query
+
             SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
-            result = Convert.ToInt32(myCommand.ExecuteScalar());
+            result = Convert.ToInt32(myCommand.ExecuteScalar()); //grabs number from data structure with executescalar, and converts it to int
             Console.WriteLine("result is: ");
             Console.WriteLine(result);
 
-            return count;
+            return result;
         }
 
     }
