@@ -15,6 +15,7 @@ namespace Pick_A_Student
    
     public partial class PickAStudent : Form
     {
+<<<<<<< HEAD
         String StudentClass = "cosc101";
         backend student = new backend();
 =======
