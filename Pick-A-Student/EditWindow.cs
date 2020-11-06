@@ -12,6 +12,8 @@ namespace Pick_A_Student
 {
     public partial class EditWindow : Form
     {
+ 
+        
         public EditWindow()
         {
             InitializeComponent();

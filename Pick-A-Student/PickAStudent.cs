@@ -17,6 +17,8 @@ namespace Pick_A_Student
     {
         String StudentClass = "cosc101";
         backend student = new backend();
+=======
+>>>>>>> parent of 6a16b61... Added reference to backend in project browser
         public PickAStudent()
         {
             InitializeComponent();

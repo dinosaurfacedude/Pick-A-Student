@@ -7,6 +7,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Pick_A_Student
 {
