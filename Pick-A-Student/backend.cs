@@ -54,7 +54,6 @@ namespace Pick_A_Student
             myCommand.ExecuteNonQuery();
         }
 
-
         //adds one to the number of correct answers
         public void addCorrect(String tableName, int studentID)
         {
@@ -83,6 +82,8 @@ namespace Pick_A_Student
 
         }
 
+        //adds incorrect to incorrect count in database.
+        //takes name of table, and then ID of student
         public void addIncorrect(String tableName, int studentID)
         {
             SQLiteDataReader result;
@@ -110,6 +111,34 @@ namespace Pick_A_Student
 
         }
 
+        //adds sleep number to database 
+        public void addSleep(String tableName, int studentID)
+        {
+            SQLiteDataReader result;
+            int missingNum;
+            String command = "select missing from " + tableName + " where id = " + studentID;
+            SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
+            result = myCommand.ExecuteReader();
+
+            if (result.HasRows)
+            {
+                result.Read();
+                missingNum = result.GetInt16(0);
+
+                Console.WriteLine("MISSING NUMBERS: " + missingNum);
+
+                missingNum += 1;
+
+                command = "update " + tableName + " set missing = " + missingNum + " where id = " + studentID;
+
+                myCommand = new SQLiteCommand(command, myConnection);
+                myCommand.ExecuteNonQuery();
+
+            }
+
+
+        }
+
 
         //gets the name of the student called
         public String getStudent(String tableName, int studentID)
@@ -131,7 +160,7 @@ namespace Pick_A_Student
             return "null";
         }
 
-
+        //Takes number generator, checks if number in array. If not found in array, adds.
         public int[] randomizeArray(String tableName)
         {
 

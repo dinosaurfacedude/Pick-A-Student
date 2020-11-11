@@ -29,8 +29,11 @@ namespace Pick_A_Student
             studentList = student.randomizeArray("COSC101");
         }
 
+
+        //button for incorrect answers
         private void ThinkingBright_Click(object sender, EventArgs e)
         {
+            student.addIncorrect("COSC101", studentList[p]);
             if (j == 1) { }
             else if (i == 1) { }
             else if (k == 0)
@@ -51,8 +54,10 @@ namespace Pick_A_Student
 
         }
 
+        //button for correct answers
         private void button1_Click(object sender, EventArgs e)
         {
+            student.addCorrect("COSC101", studentList[p]);
             if (k == 1) { }
             else if (j == 1) { }
             
@@ -73,6 +78,7 @@ namespace Pick_A_Student
 
         }
 
+        //edit button
         private void Edit_Click(object sender, EventArgs e)
         {
             var EditWindow = new EditWindow();
@@ -81,6 +87,8 @@ namespace Pick_A_Student
 
         private void sleeping_Click(object sender, EventArgs e)
         {
+            student.addSleep("COSC101", studentList[p]);
+           
             if (k == 1) { }
             else if (i == 1) { }
             else if (j == 0)
@@ -99,6 +107,8 @@ namespace Pick_A_Student
                 j = 0;
             }
         }
+
+        //brings up screen that allows user to select class
         private void ClassChoose_Click(object sender, EventArgs e)
         {
             var newForm = new ChooseClass();
@@ -129,9 +139,14 @@ namespace Pick_A_Student
         private void NextStudent_Click(object sender, EventArgs e)
         {
             p = p + 1; // counter variable
+            if(p == studentNumber)
+            {
+                studentList = student.randomizeArray("COSC101");
+                Console.WriteLine("end of queue. Randomizing");
+                p = 0;
+            }
             StudentName.Text = student.getStudent("COSC101", studentList[p]);
-
-
+            
         }
 
         //this is where the student name goes
