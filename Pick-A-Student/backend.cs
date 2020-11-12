@@ -7,6 +7,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
+using System.Collections;
 
 namespace Pick_A_Student
 {
@@ -203,5 +204,77 @@ namespace Pick_A_Student
             return result;
         }
 
+        //gets number of correct integers for student ID
+        public int getCorrect(String tableName, int studentID)
+        {
+            SQLiteDataReader result;
+            int correct;
+            String command = "select correct from " + tableName + " where id = " + studentID;
+            SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
+            result = myCommand.ExecuteReader();
+            if (result.HasRows)
+            {
+                result.Read();
+                correct = result.GetInt16(0);
+                return correct;
+            }
+
+
+            return 0;
+        }
+
+
+        //gets number of incorrect answers from student
+        //takes table ID, then Student ID
+        public int getIncorrect(String tableName, int studentID)
+        {
+            SQLiteDataReader result;
+            int incorrect;
+            String command = "select incorrect from " + tableName + " where id = " + studentID;
+            SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
+            result = myCommand.ExecuteReader();
+            if (result.HasRows)
+            {
+                result.Read();
+                incorrect = result.GetInt16(0);
+                return incorrect;
+            }
+
+
+            return 0;
+        }
+
+
+        //gets number of missed appearances from student
+        //takes table ID, then Student ID
+        public int getMissing(String tableName, int studentID)
+        {
+            SQLiteDataReader result;
+            int missing;
+            String command = "select missing from " + tableName + " where id = " + studentID;
+            SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
+            result = myCommand.ExecuteReader();
+            if (result.HasRows)
+            {
+                result.Read();
+                missing = result.GetInt16(0);
+                return missing;
+            }
+
+
+            return 0;
+        }
+
+
+
+        /* public ArrayList getAllTables()
+         {
+             ArrayList myList;
+             //String myCommand = "SELECT name FROM "+ + "WHERE type = 'table' ORDER BY 1";
+
+
+             return myList;
+         }
+        */
     }
 }

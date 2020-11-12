@@ -20,7 +20,7 @@ namespace Pick_A_Student
         static int p = 0;
         static int studentNumber = student.countID("COSC101");
         static int[] studentList = new int[studentNumber - 1];
-        
+        int queue = 0;
 
 
         public PickAStudent()
@@ -138,6 +138,7 @@ namespace Pick_A_Student
         //next arrow
         private void NextStudent_Click(object sender, EventArgs e)
         {
+          
             p = p + 1; // counter variable
             if(p == studentNumber)
             {
@@ -146,11 +147,18 @@ namespace Pick_A_Student
                 p = 0;
             }
             StudentName.Text = student.getStudent("COSC101", studentList[p]);
-            
+            queue = studentNumber - p;
+            textBox1.Text = queue.ToString();
         }
 
         //this is where the student name goes
         private void StudentName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //queue number
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
