@@ -36,9 +36,10 @@
             // 
             // AddClass
             // 
-            this.AddClass.BackColor = System.Drawing.Color.DimGray;
-            this.AddClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddClass.BackColor = System.Drawing.Color.Transparent;
+            this.AddClass.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddClass.ForeColor = System.Drawing.Color.White;
             this.AddClass.Location = new System.Drawing.Point(43, 44);
             this.AddClass.Name = "AddClass";
             this.AddClass.Size = new System.Drawing.Size(111, 50);
@@ -49,9 +50,10 @@
             // 
             // DeleteClass
             // 
-            this.DeleteClass.BackColor = System.Drawing.Color.DimGray;
-            this.DeleteClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteClass.BackColor = System.Drawing.Color.Transparent;
+            this.DeleteClass.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.DeleteClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteClass.ForeColor = System.Drawing.Color.White;
             this.DeleteClass.Location = new System.Drawing.Point(24, 403);
             this.DeleteClass.Name = "DeleteClass";
             this.DeleteClass.Size = new System.Drawing.Size(119, 32);
@@ -61,9 +63,10 @@
             // 
             // LoadClass
             // 
-            this.LoadClass.BackColor = System.Drawing.Color.DimGray;
-            this.LoadClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoadClass.BackColor = System.Drawing.Color.Transparent;
+            this.LoadClass.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LoadClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoadClass.ForeColor = System.Drawing.Color.Transparent;
             this.LoadClass.Location = new System.Drawing.Point(669, 403);
             this.LoadClass.Name = "LoadClass";
             this.LoadClass.Size = new System.Drawing.Size(119, 32);
@@ -73,20 +76,23 @@
             // 
             // radioButton1
             // 
+            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
             this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.ForeColor = System.Drawing.Color.White;
             this.radioButton1.Location = new System.Drawing.Point(560, 55);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(129, 39);
             this.radioButton1.TabIndex = 3;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "COSC 1303A";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.UseVisualStyleBackColor = false;
             // 
             // ChooseClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
+            this.BackgroundImage = global::Pick_A_Student.Properties.Resources.Light_Blue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.LoadClass);
