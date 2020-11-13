@@ -18,9 +18,9 @@ namespace Pick_A_Student
         static int i = 1;
         static int t = 1;
         static String className = "COSC101";
+
         String name = student.getStudent(className, 1);
-        static int studentNumber = student.countID("COSC101");
-        static int[] studentList = new int[studentNumber];
+        
         public EditWindow()
         {
             InitializeComponent();
@@ -58,7 +58,7 @@ namespace Pick_A_Student
 
         private void EditWindow_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Student1_TextChanged(object sender, EventArgs e)
@@ -81,11 +81,11 @@ namespace Pick_A_Student
 
         }
 
-
+        
         //add student button
         private void Add_Click_1(object sender, EventArgs e)
         {
-
+            
             //all 3 editable text boxes to be added
             TextBox tb = new TextBox();
             TextBox ca = new TextBox();
@@ -95,10 +95,10 @@ namespace Pick_A_Student
             ca.Text = "0";
             wa.Text = "0";
             st.Text = "0";
-
+            
             //make a checkbox for removing the students
             CheckBox cb = new CheckBox();
-            Point cbp = new Point(12, 80 + i);
+            Point cbp = new Point(12, 70 + i);
             Point p = new Point(61, 82 + i);
             Point d = new Point(369, 82 + i);
             Point o = new Point(515, 82 + i);
@@ -130,7 +130,7 @@ namespace Pick_A_Student
             t++;
 
             student.insertStudent(className, tb.Text);
-
+        
         }
 
         private void Save_Click(object sender, EventArgs e)
