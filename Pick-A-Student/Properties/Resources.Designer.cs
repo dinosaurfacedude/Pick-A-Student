@@ -123,6 +123,16 @@ namespace Pick_A_Student.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Light_Blue {
+            get {
+                object obj = ResourceManager.GetObject("Light_Blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sleeping_Emoji {
             get {
                 object obj = ResourceManager.GetObject("Sleeping Emoji", resourceCulture);

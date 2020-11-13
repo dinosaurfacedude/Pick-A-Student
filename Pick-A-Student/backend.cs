@@ -265,6 +265,14 @@ namespace Pick_A_Student
             return 0;
         }
 
+        public void deleteStudent(String tableName, int studentID)
+        {
+            
+            String command = "delete from " + tableName + " where id = " + studentID;
+            SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
+            myCommand.ExecuteNonQuery();
+
+        }
 
 
         /* public ArrayList getAllTables()

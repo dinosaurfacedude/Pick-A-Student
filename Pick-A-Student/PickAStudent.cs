@@ -26,6 +26,7 @@ namespace Pick_A_Student
         public PickAStudent()
         {
             InitializeComponent();
+            this.BackgroundImage = global::Pick_A_Student.Properties.Resources.Light_Blue;
             studentList = student.randomizeArray("COSC101");
         }
 
