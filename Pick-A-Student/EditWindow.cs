@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace Pick_A_Student
 {
@@ -18,9 +17,6 @@ namespace Pick_A_Student
         static int i = 1;
         static int t = 1;
         static String className = "COSC101";
-
-        String name = student.getStudent(className, 1);
-        
         public EditWindow()
         {
             InitializeComponent();
@@ -58,7 +54,7 @@ namespace Pick_A_Student
 
         private void EditWindow_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Student1_TextChanged(object sender, EventArgs e)
