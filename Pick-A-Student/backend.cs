@@ -192,7 +192,6 @@ namespace Pick_A_Student
         //counts the total number of entries in a table
         public int countID(String tableName)
         {
-            
             int result;
             String command = "SELECT COUNT(*) FROM " + tableName; //my SQL query
 
@@ -265,13 +264,22 @@ namespace Pick_A_Student
             return 0;
         }
 
+        //deletes a student from the database
         public void deleteStudent(String tableName, int studentID)
         {
-            
             String command = "delete from " + tableName + " where id = " + studentID;
             SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
             myCommand.ExecuteNonQuery();
+            
 
+        }
+
+        public void updateStudent(String tableName, int studentID, String newName)
+        {
+
+            String command = "update " + tableName + "set name = '" + newName + "' where id = " + studentID;
+            SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
+            myCommand.ExecuteNonQuery();
         }
 
 

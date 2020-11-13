@@ -28,6 +28,7 @@ namespace Pick_A_Student
             InitializeComponent();
             this.BackgroundImage = global::Pick_A_Student.Properties.Resources.Light_Blue;
             studentList = student.randomizeArray("COSC101");
+            student.deleteStudent("COSC101", 1);
         }
 
 
