@@ -17,6 +17,9 @@ namespace Pick_A_Student
         static int i = 1;
         static int t = 1;
         static String className = "COSC101";
+        String name = student.getStudent(className, 1);
+        static int studentNumber = student.countID("COSC101");
+        static int[] studentList = new int[studentNumber];
         public EditWindow()
         {
             InitializeComponent();
@@ -54,6 +57,56 @@ namespace Pick_A_Student
 
         private void EditWindow_Load(object sender, EventArgs e)
         {
+            
+            for (int t = 1; t < student.countID("COSC101"); t++)
+            {
+                //all 3 editable text boxes to be added
+                TextBox Student = new TextBox();
+                TextBox correct = new TextBox();
+                TextBox wrong = new TextBox();
+                TextBox thinking = new TextBox();
+                String name = student.getStudent(className, t);
+                String corr = student.getCorrect(className, t).ToString();
+                String incorr = student.getIncorrect(className, t).ToString();
+                String none = student.getMissing(className, t).ToString();
+                Student.Text = name;
+                correct.Text = corr;
+                wrong.Text = incorr;
+                thinking.Text = none;
+
+                //make a checkbox for removing the students
+                CheckBox check = new CheckBox();
+                Point cbp = new Point(12, 70 + i);
+                Point p = new Point(61, 82 + i);
+                Point d = new Point(369, 82 + i);
+                Point o = new Point(515, 82 + i);
+                Point l = new Point(663, 82 + i);
+                Student.Location = p;
+                correct.Location = d;
+                wrong.Location = o;
+                thinking.Location = l;
+                check.Location = cbp;
+
+
+                Size s = new Size(210, 34);
+                Size q = new Size(52, 37);
+                Student.Size = s;
+                correct.Size = q;
+                wrong.Size = q;
+                thinking.Size = q;
+
+                //tb.Multiline = true;
+                check.SendToBack();
+                Student.BringToFront();
+                check.BackColor = Color.Transparent;
+                this.Controls.Add(Student);
+                this.Controls.Add(check);
+                this.Controls.Add(correct);
+                this.Controls.Add(wrong);
+                this.Controls.Add(thinking);
+                i = i + 30;
+                t++;
+            }
 
         }
 
@@ -94,7 +147,7 @@ namespace Pick_A_Student
             
             //make a checkbox for removing the students
             CheckBox cb = new CheckBox();
-            Point cbp = new Point(12, 70 + i);
+            Point cbp = new Point(12, 80 + i);
             Point p = new Point(61, 82 + i);
             Point d = new Point(369, 82 + i);
             Point o = new Point(515, 82 + i);
