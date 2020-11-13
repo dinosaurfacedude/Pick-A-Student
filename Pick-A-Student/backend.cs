@@ -14,10 +14,11 @@ namespace Pick_A_Student
     class backend
     {
         public SQLiteConnection myConnection;
-
-        public backend()
+        
+        public backend(String databaseName)
         {
-            myConnection = new SQLiteConnection("Data Source = studentData.sqlite3");
+
+            myConnection = new SQLiteConnection("Data Source = " + databaseName);
 
             //Checks if database exists
             if (!File.Exists("studentData.sqlite3")){
@@ -217,8 +218,6 @@ namespace Pick_A_Student
                 correct = result.GetInt16(0);
                 return correct;
             }
-
-
             return 0;
         }
 
