@@ -80,9 +80,6 @@ namespace Pick_A_Student
                     wrong.Text = incorr;
                     thinking.Text = none;
 
-                    //make a checkbox for removing the students
-                    CheckBox check = new CheckBox();
-                    Point cbp = new Point(12, 70 + i);
                     Point p = new Point(61, 82 + i);
                     Point d = new Point(369, 82 + i);
                     Point o = new Point(515, 82 + i);
@@ -91,7 +88,6 @@ namespace Pick_A_Student
                     correct.Location = d;
                     wrong.Location = o;
                     thinking.Location = l;
-                    check.Location = cbp;
 
 
                     Size s = new Size(210, 34);
@@ -101,12 +97,8 @@ namespace Pick_A_Student
                     wrong.Size = q;
                     thinking.Size = q;
 
-                    //tb.Multiline = true;
-                    check.SendToBack();
                     Student.BringToFront();
-                    check.BackColor = Color.Transparent;
                     this.Controls.Add(Student);
-                    this.Controls.Add(check);
                     this.Controls.Add(correct);
                     this.Controls.Add(wrong);
                     this.Controls.Add(thinking);
@@ -151,10 +143,7 @@ namespace Pick_A_Student
             ca.Text = "0";
             wa.Text = "0";
             st.Text = "0";
-            
-            //make a checkbox for removing the students
-            CheckBox cb = new CheckBox();
-            Point cbp = new Point(12, 80 + i);
+           
             Point p = new Point(61, 82 + i);
             Point d = new Point(369, 82 + i);
             Point o = new Point(515, 82 + i);
@@ -163,7 +152,6 @@ namespace Pick_A_Student
             ca.Location = d;
             wa.Location = o;
             st.Location = l;
-            cb.Location = cbp;
 
 
             Size s = new Size(210, 34);
@@ -173,12 +161,8 @@ namespace Pick_A_Student
             wa.Size = q;
             st.Size = q;
 
-            //tb.Multiline = true;
-            cb.SendToBack();
             tb.BringToFront();
-            cb.BackColor = Color.Transparent;
             this.Controls.Add(tb);
-            this.Controls.Add(cb);
             this.Controls.Add(ca);
             this.Controls.Add(wa);
             this.Controls.Add(st);
@@ -194,10 +178,6 @@ namespace Pick_A_Student
 
         }
 
-        private void Remove_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
