@@ -15,26 +15,37 @@ namespace Pick_A_Student
     {
         public SQLiteConnection myConnection;
 
-        public backend()
+        public backend(String filePath)
         {
-            myConnection = new SQLiteConnection("Data Source = studentData.sqlite3");
+            myConnection = new SQLiteConnection("Data Source = " + filePath);
 
             //Checks if database exists
-            if (!File.Exists("studentData.sqlite3")){
-                SQLiteConnection.CreateFile("studentData.sqlite3");
+            if (!File.Exists(filePath)){
+                SQLiteConnection.CreateFile(filePath);
             }
-            myConnection.Open(); 
+            
+            myConnection.Open();
+            createTable("COSC101");
+            insertStudent("COSC101", "Student 1");
+            
+        }
+
+        public void closeClass()
+        {
+            myConnection.Close();
         }
 
         //when called, creates a table 
         public void createTable(String tableName)
         {
+            //myConnection.Open();
             String command = "CREATE TABLE IF NOT EXISTS " + tableName + "(id INT, name varchar(20), CORRECT INT, INCORRECT INT, MISSING INT)";
             SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
             myCommand.ExecuteNonQuery();
+            //myConnection.Close();
         }
 
-        public void deleteTable(String tableName)
+       /* public void deleteTable(String tableName)
         {
             String command = "DROP TABLE " + tableName;
             SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
@@ -42,22 +53,25 @@ namespace Pick_A_Student
 
 
         }
-
+       */
 
         //inserts a student, gives ID from countStudent()
         public void insertStudent(String tableName, String studentName)
         {
-            int i = countID(tableName) + 1;
             
+            
+            int i = countID(tableName) + 1;
 
             String command = "INSERT INTO " + tableName + " (id, name, correct, incorrect, missing) VALUES (" + i + ", '" + studentName + "', 0, 0, 0)";
             SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
             myCommand.ExecuteNonQuery();
+           
         }
 
         //adds one to the number of correct answers
         public void addCorrect(String tableName, int studentID)
         {
+            
             SQLiteDataReader result;
             int correct;
             String command = "select correct from " + tableName + " where id = " + studentID;
@@ -78,15 +92,16 @@ namespace Pick_A_Student
 
                 myCommand = new SQLiteCommand(command, myConnection);
                 myCommand.ExecuteNonQuery();
-
+                
             }
-
+            
         }
 
         //adds incorrect to incorrect count in database.
         //takes name of table, and then ID of student
         public void addIncorrect(String tableName, int studentID)
         {
+            
             SQLiteDataReader result;
             int incorrect;
             String command = "select incorrect from " + tableName + " where id = " + studentID;
@@ -109,12 +124,13 @@ namespace Pick_A_Student
                 myCommand.ExecuteNonQuery();
 
             }
-
+            
         }
 
         //adds sleep number to database 
         public void addSleep(String tableName, int studentID)
         {
+            
             SQLiteDataReader result;
             int missingNum;
             String command = "select missing from " + tableName + " where id = " + studentID;
@@ -137,13 +153,14 @@ namespace Pick_A_Student
 
             }
 
-
+            
         }
 
 
         //gets the name of the student called
         public String getStudent(String tableName, int studentID)
         {
+            
             String name;
             String command = "select name from " + tableName + " where id = " + studentID;
             SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
@@ -154,11 +171,14 @@ namespace Pick_A_Student
             {
                 result.Read();
                 name = result.GetString(0);
+               
                 return name;
             }
 
             //if nothing in database, returns null.
+            
             return "null";
+            
         }
 
         //Takes number generator, checks if number in array. If not found in array, adds.
@@ -192,6 +212,7 @@ namespace Pick_A_Student
         //counts the total number of entries in a table
         public int countID(String tableName)
         {
+            
             int result;
             String command = "SELECT COUNT(*) FROM " + tableName; //my SQL query
 
@@ -199,13 +220,14 @@ namespace Pick_A_Student
             result = Convert.ToInt32(myCommand.ExecuteScalar()); //grabs number from data structure with executescalar, and converts it to int
             Console.WriteLine("result is: ");
             Console.WriteLine(result);
-
+            
             return result;
         }
 
         //gets number of correct integers for student ID
         public int getCorrect(String tableName, int studentID)
         {
+            
             SQLiteDataReader result;
             int correct;
             String command = "select correct from " + tableName + " where id = " + studentID;
@@ -215,10 +237,11 @@ namespace Pick_A_Student
             {
                 result.Read();
                 correct = result.GetInt16(0);
+                
                 return correct;
             }
 
-
+            
             return 0;
         }
 
@@ -227,6 +250,7 @@ namespace Pick_A_Student
         //takes table ID, then Student ID
         public int getIncorrect(String tableName, int studentID)
         {
+           
             SQLiteDataReader result;
             int incorrect;
             String command = "select incorrect from " + tableName + " where id = " + studentID;
@@ -236,10 +260,11 @@ namespace Pick_A_Student
             {
                 result.Read();
                 incorrect = result.GetInt16(0);
+                
                 return incorrect;
             }
 
-
+            
             return 0;
         }
 
@@ -248,6 +273,7 @@ namespace Pick_A_Student
         //takes table ID, then Student ID
         public int getMissing(String tableName, int studentID)
         {
+            
             SQLiteDataReader result;
             int missing;
             String command = "select missing from " + tableName + " where id = " + studentID;
@@ -257,40 +283,35 @@ namespace Pick_A_Student
             {
                 result.Read();
                 missing = result.GetInt16(0);
+                
                 return missing;
             }
 
-
+            
             return 0;
         }
 
         //deletes a student from the database
-        public void deleteStudent(String tableName, int studentID)
+        public void deleteStudent(String tableName, String studentName)
         {
-            String command = "delete from " + tableName + " where id = " + studentID;
+            
+            String command = "delete from " + tableName + " where name = '" + studentName + "'";
             SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
             myCommand.ExecuteNonQuery();
             
 
         }
 
-        public void updateStudent(String tableName, int studentID, String newName)
+        public void updateStudent(String tableName, String oldName, String newName)
         {
-
-            String command = "update " + tableName + "set name = '" + newName + "' where id = " + studentID;
+            
+            String command = "update " + tableName + " set name = '" + newName + "' where name = '" + oldName + "'";
             SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
             myCommand.ExecuteNonQuery();
+           
         }
 
 
-        /* public ArrayList getAllTables()
-         {
-             ArrayList myList;
-             //String myCommand = "SELECT name FROM "+ + "WHERE type = 'table' ORDER BY 1";
-
-
-             return myList;
-         }
-        */
+        
     }
 }

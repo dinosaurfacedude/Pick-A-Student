@@ -40,6 +40,8 @@
             this.sleeping = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.ThinkingBright = new System.Windows.Forms.Button();
+            this.newClass = new System.Windows.Forms.Button();
+            this.NewClassTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -197,12 +199,34 @@
             this.ThinkingBright.UseVisualStyleBackColor = false;
             this.ThinkingBright.Click += new System.EventHandler(this.ThinkingBright_Click);
             // 
+            // newClass
+            // 
+            this.newClass.BackColor = System.Drawing.Color.DimGray;
+            this.newClass.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.newClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newClass.Location = new System.Drawing.Point(12, 81);
+            this.newClass.Name = "newClass";
+            this.newClass.Size = new System.Drawing.Size(116, 38);
+            this.newClass.TabIndex = 17;
+            this.newClass.Text = "New Class";
+            this.newClass.UseVisualStyleBackColor = false;
+            this.newClass.Click += new System.EventHandler(this.newClass_Click);
+            // 
+            // NewClassTextBox
+            // 
+            this.NewClassTextBox.Location = new System.Drawing.Point(12, 125);
+            this.NewClassTextBox.Name = "NewClassTextBox";
+            this.NewClassTextBox.Size = new System.Drawing.Size(116, 20);
+            this.NewClassTextBox.TabIndex = 18;
+            // 
             // PickAStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(800, 492);
+            this.Controls.Add(this.NewClassTextBox);
+            this.Controls.Add(this.newClass);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.ClassChoose);
             this.Controls.Add(this.title);
@@ -237,6 +261,8 @@
         private System.Windows.Forms.Button ClassChoose;
         private System.Windows.Forms.TextBox textBox1;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.Button newClass;
+        private System.Windows.Forms.TextBox NewClassTextBox;
     }
 }
 

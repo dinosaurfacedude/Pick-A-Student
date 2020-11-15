@@ -12,13 +12,17 @@ namespace Pick_A_Student
 {
     public partial class PickAStudent : Form
     {
-        static backend student = new backend();
-
+        
+        public static String className = "studentPlaceholder.sqlite3";
+        static backend student = new backend(className);
+        public static String classNameSafe = "studentPlaceholder";
+        OpenFileDialog ofd = new OpenFileDialog();
         static int i = 0;
         static int k = 0;
         static int j = 0;
         static int p = 0;
-        static int studentNumber = student.countID("COSC101");
+
+        static int studentNumber = 1;
         static int[] studentList = new int[studentNumber - 1];
         int queue = 0;
 
@@ -26,6 +30,7 @@ namespace Pick_A_Student
         public PickAStudent()
         {
             InitializeComponent();
+            studentNumber = student.countID("COSC101");
             this.BackgroundImage = global::Pick_A_Student.Properties.Resources.Light_Blue;
             studentList = student.randomizeArray("COSC101");
            
@@ -113,8 +118,15 @@ namespace Pick_A_Student
         //brings up screen that allows user to select class
         private void ClassChoose_Click(object sender, EventArgs e)
         {
-            var newForm = new ChooseClass();
-            newForm.Show();
+            ofd.Filter = "sqlite3|*.sqlite3";
+            if (ofd.ShowDialog() == DialogResult.OK) {
+                className = ofd.FileName;
+                classNameSafe = ofd.SafeFileName;
+                student = new backend(className);
+                studentList = student.randomizeArray("COSC101");
+            }
+            
+            
         }
 
         private void title_TextChanged(object sender, EventArgs e)
@@ -130,9 +142,7 @@ namespace Pick_A_Student
 
         private void PickAStudent_Load(object sender, EventArgs e)
         {
-            var newForm = new ChooseClass();
-            newForm.BringToFront();
-            newForm.Show();
+           
          
         }
 
@@ -140,18 +150,37 @@ namespace Pick_A_Student
         //next arrow
         private void NextStudent_Click(object sender, EventArgs e)
         {
-          
+            String name;
             p = p + 1; // counter variable
-            if(p == studentNumber)
+            if(p == student.countID("COSC101"))
             {
                 studentList = student.randomizeArray("COSC101");
                 Console.WriteLine("end of queue. Randomizing");
                 p = 0;
             }
-            StudentName.Text = student.getStudent("COSC101", studentList[p]);
-            queue = studentNumber - p;
+            name = student.getStudent("COSC101", studentList[p]);
+           
+            //if ID shows name that doesn't exist anymore, goes to next name until pulls ID with legitimate name
+            if(name == "null")
+            {
+                while(name == "null")
+                {
+                    p = p + 1;
+                    if (p == student.countID("COSC101")){
+                        p = 0;
+                    }
+
+                    name = student.getStudent("COSC101", studentList[p]);
+                   
+                }
+            }
+            //sets textbox in center of screen to student name
+            StudentName.Text = name;
+            
+            /*queue = p - studentNumber;
             textBox1.Text = queue.ToString();
-        }
+        */
+            }
 
         //this is where the student name goes
         private void StudentName_TextChanged(object sender, EventArgs e)
@@ -163,6 +192,13 @@ namespace Pick_A_Student
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void newClass_Click(object sender, EventArgs e)
+        {
+            String newClassName = NewClassTextBox.Text + ".sqlite3";
+            student.closeClass();
+            student = new backend(newClassName);
         }
     }
 }

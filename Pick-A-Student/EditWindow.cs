@@ -12,12 +12,13 @@ namespace Pick_A_Student
 {
     public partial class EditWindow : Form
     {
-        static backend student = new backend();
+        
         //i will be tied to the length of the class array that is loaded into the program at the start
         static int i = 1;
         static int t = 1;
         static String className = "COSC101";
-        String name = student.getStudent(className, 1);
+        static backend student = new backend(PickAStudent.className);
+        static String name = student.getStudent(className, 1);
         static int studentNumber = student.countID("COSC101");
         static int[] studentList = new int[studentNumber];
         public EditWindow()
@@ -57,18 +58,20 @@ namespace Pick_A_Student
 
         private void EditWindow_Load(object sender, EventArgs e)
         {
-            
+
+            Console.WriteLine(PickAStudent.className);
             for (int t = 1; t < student.countID("COSC101"); t++)
             {
                 
 
                 String name = student.getStudent(className, t);
+                Console.WriteLine("STUDENT NAME IS " + name);
                 String corr = student.getCorrect(className, t).ToString();
                 String incorr = student.getIncorrect(className, t).ToString();
                 String none = student.getMissing(className, t).ToString();
 
-                if (name != "null")
-                {
+            //    if (name != "null")
+              //  {
                     //all 3 editable text boxes to be added
                     TextBox Student = new TextBox();
                     TextBox correct = new TextBox();
@@ -102,7 +105,7 @@ namespace Pick_A_Student
                     this.Controls.Add(correct);
                     this.Controls.Add(wrong);
                     this.Controls.Add(thinking);
-                }
+                //}
                 i = i + 30;
                 t++;
             }
@@ -114,9 +117,11 @@ namespace Pick_A_Student
 
         }
 
+
+        //name of class
         private void ClassName_TextChanged(object sender, EventArgs e)
         {
-
+            ClassName.Text = PickAStudent.classNameSafe;
         }
 
         private void StudentName_TextChanged(object sender, EventArgs e)
@@ -182,6 +187,37 @@ namespace Pick_A_Student
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            String name = studentDelete.Text;
+            TextBox deletedStudent = new TextBox();
+            student.deleteStudent(className, name);
+        }
+
+        private void toChange_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void changeTo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        //update button
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String oldName = toChange.Text;
+            String newName = changeTo.Text;
+            student.updateStudent(className, oldName, newName);
         }
     }
 }
