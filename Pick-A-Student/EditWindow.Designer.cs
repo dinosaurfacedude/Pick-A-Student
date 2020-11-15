@@ -134,12 +134,13 @@
             // 
             // delete
             // 
+            this.delete.BackColor = System.Drawing.Color.Transparent;
             this.delete.Location = new System.Drawing.Point(411, 4);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(96, 34);
             this.delete.TabIndex = 27;
             this.delete.Text = "delete student";
-            this.delete.UseVisualStyleBackColor = true;
+            this.delete.UseVisualStyleBackColor = false;
             this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // toChange
@@ -162,12 +163,13 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.Location = new System.Drawing.Point(697, 10);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 30;
             this.button1.Text = "update";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // EditWindow

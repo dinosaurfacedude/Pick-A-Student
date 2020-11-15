@@ -120,4 +120,14 @@
   <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>How To:
+Step 1: Load a class into the database by clickig the choose class button.
+Step 2: Now that the class is loaded, you may click next student to have a student appear in the middle text box.
+Step 3: After you have asked your student their question, you may click on the respective face to indicate how they did.
+Step 4: click the next student button to select another student or the sve button to save the curent student's response to the database.
+Edit Window
+To edit a student name you can click on the "Edit" button to see the entirety of the class and edit their name or response ammounts.
+</value>
+  </data>
 </root>
