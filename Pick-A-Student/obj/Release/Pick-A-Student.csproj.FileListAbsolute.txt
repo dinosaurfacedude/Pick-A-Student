@@ -1,0 +1,16 @@
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\bin\Release\Pick-A-Student.exe.config
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\bin\Release\Pick-A-Student.exe
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\bin\Release\Pick-A-Student.pdb
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\bin\Release\System.Data.SQLite.dll
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\bin\Release\System.Data.SQLite.xml
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Release\Pick-A-Student.csprojAssemblyReference.cache
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Release\Pick_A_Student.About.resources
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Release\Pick_A_Student.ChooseClass.resources
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Release\Pick_A_Student.EditWindow.resources
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Release\Pick_A_Student.PickAStudent.resources
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Release\Pick_A_Student.Properties.Resources.resources
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Release\Pick-A-Student.csproj.GenerateResource.cache
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Release\Pick-A-Student.csproj.CoreCompileInputs.cache
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Release\Pick-A-Student.csproj.CopyComplete
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Release\Pick-A-Student.exe
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Release\Pick-A-Student.pdb

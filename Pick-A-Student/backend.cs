@@ -22,11 +22,15 @@ namespace Pick_A_Student
             //Checks if database exists
             if (!File.Exists(filePath)){
                 SQLiteConnection.CreateFile(filePath);
+                myConnection.Open();
+                createTable("COSC101");
+                insertStudent("COSC101", "Student 1");
+                myConnection.Close();
             }
-            
+           
             myConnection.Open();
-            createTable("COSC101");
-            insertStudent("COSC101", "Student 1");
+           
+            
             
         }
 
@@ -45,15 +49,6 @@ namespace Pick_A_Student
             //myConnection.Close();
         }
 
-       /* public void deleteTable(String tableName)
-        {
-            String command = "DROP TABLE " + tableName;
-            SQLiteCommand myCommand = new SQLiteCommand(command, myConnection);
-            myCommand.ExecuteNonQuery();
-
-
-        }
-       */
 
         //inserts a student, gives ID from countStudent()
         public void insertStudent(String tableName, String studentName)

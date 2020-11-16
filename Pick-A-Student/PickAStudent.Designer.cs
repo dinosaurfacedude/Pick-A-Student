@@ -34,7 +34,6 @@
             this.Save = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.TextBox();
             this.ClassChoose = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.NextStudent = new System.Windows.Forms.Button();
             this.sleeping = new System.Windows.Forms.Button();
@@ -54,7 +53,6 @@
             this.StudentName.ShortcutsEnabled = false;
             this.StudentName.Size = new System.Drawing.Size(431, 49);
             this.StudentName.TabIndex = 1;
-            this.StudentName.Text = "Daniel Jones";
             this.StudentName.TextChanged += new System.EventHandler(this.StudentName_TextChanged);
             // 
             // Edit
@@ -125,17 +123,6 @@
             this.ClassChoose.Text = "Choose Class";
             this.ClassChoose.UseVisualStyleBackColor = false;
             this.ClassChoose.Click += new System.EventHandler(this.ClassChoose_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.DimGray;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(638, 212);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(65, 13);
-            this.textBox1.TabIndex = 16;
-            this.textBox1.Text = "Queue size: 1";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // fileSystemWatcher1
             // 
@@ -215,9 +202,11 @@
             // NewClassTextBox
             // 
             this.NewClassTextBox.Location = new System.Drawing.Point(12, 125);
+            this.NewClassTextBox.Multiline = true;
             this.NewClassTextBox.Name = "NewClassTextBox";
-            this.NewClassTextBox.Size = new System.Drawing.Size(116, 20);
+            this.NewClassTextBox.Size = new System.Drawing.Size(116, 33);
             this.NewClassTextBox.TabIndex = 18;
+            this.NewClassTextBox.Text = "name of new class goes here";
             // 
             // PickAStudent
             // 
@@ -227,7 +216,6 @@
             this.ClientSize = new System.Drawing.Size(800, 492);
             this.Controls.Add(this.NewClassTextBox);
             this.Controls.Add(this.newClass);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.ClassChoose);
             this.Controls.Add(this.title);
             this.Controls.Add(this.NextStudent);
@@ -259,7 +247,6 @@
         private System.Windows.Forms.Button NextStudent;
         private System.Windows.Forms.TextBox title;
         private System.Windows.Forms.Button ClassChoose;
-        private System.Windows.Forms.TextBox textBox1;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Button newClass;
         private System.Windows.Forms.TextBox NewClassTextBox;

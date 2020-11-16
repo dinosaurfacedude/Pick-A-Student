@@ -58,6 +58,7 @@ namespace Pick_A_Student
 
         private void EditWindow_Load(object sender, EventArgs e)
         {
+            ClassName.Text = PickAStudent.classNameSafe;
 
             Console.WriteLine(PickAStudent.className);
             for (int t = 1; t < student.countID("COSC101"); t++)
@@ -70,8 +71,9 @@ namespace Pick_A_Student
                 String incorr = student.getIncorrect(className, t).ToString();
                 String none = student.getMissing(className, t).ToString();
 
-            //    if (name != "null")
-              //  {
+                if (name != "null")
+                {
+                 
                     //all 3 editable text boxes to be added
                     TextBox Student = new TextBox();
                     TextBox correct = new TextBox();
@@ -105,7 +107,16 @@ namespace Pick_A_Student
                     this.Controls.Add(correct);
                     this.Controls.Add(wrong);
                     this.Controls.Add(thinking);
-                //}
+                }
+                else
+                {
+                    while(name == "null")
+                    {
+                        t = t + 1;
+                        name = student.getStudent("COSC101", t);
+                       
+                    }
+                }
                 i = i + 30;
                 t++;
             }
@@ -121,7 +132,7 @@ namespace Pick_A_Student
         //name of class
         private void ClassName_TextChanged(object sender, EventArgs e)
         {
-            ClassName.Text = PickAStudent.classNameSafe;
+            
         }
 
         private void StudentName_TextChanged(object sender, EventArgs e)
@@ -180,7 +191,7 @@ namespace Pick_A_Student
 
         private void Save_Click(object sender, EventArgs e)
         {
-
+            PickAStudent.studentNumber = student.countID("COSC101");
         }
 
 

@@ -13,7 +13,6 @@ C:\Users\tanne\source\Pick-A-Student\Pick-A-Student\obj\Debug\Pick_A_Student.Abo
 C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\bin\Debug\Pick-A-Student.exe.config
 C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\bin\Debug\Pick-A-Student.exe
 C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\bin\Debug\Pick-A-Student.pdb
-C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Debug\Pick-A-Student.csprojAssemblyReference.cache
 C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Debug\Pick_A_Student.About.resources
 C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Debug\Pick_A_Student.ChooseClass.resources
 C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Debug\Pick_A_Student.EditWindow.resources
@@ -26,3 +25,4 @@ C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Debug\Pi
 C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\bin\Debug\System.Data.SQLite.dll
 C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\bin\Debug\System.Data.SQLite.xml
 C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Debug\Pick-A-Student.csproj.CopyComplete
+C:\Users\Retroplayer\Documents\GitHub\Pick-A-Student\Pick-A-Student\obj\Debug\Pick-A-Student.csprojAssemblyReference.cache
